@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.pixel-container {
+    width: 40vw;
+    height: 70vh;
+    margin: 40px 40px auto auto;
+    border: 1px solid black;
+}
