@@ -4,11 +4,35 @@
     box-sizing: border-box;
 }
 
+.heading{
+    width:100vw;
+    padding: 20px;
+    text-align: center;
+    font-size:5em;
+    font-family: monospace;
+    color: whitesmoke;
+    background-color: #3367ab;
+}
+
+.main {
+    width:100vw;
+    display: grid;
+    justify-content: center;
+    padding: 40px;
+    display: flex;
+    justify-content:center;
+}
+
 .pixel-container {
-    width: 162px;
-    margin: 0 auto;
+    width: 500px;
+    height: 500px;
     border: 1px solid black;
     display: flex;
     flex-wrap: wrap;
     align-self: flex-start;
+}
+
+.tool-box {
+    width: 20%;
+    border: 1px solid black;
 }
