@@ -2,6 +2,12 @@
 Etch-a-Sketch project
 TOP prescribed project
 */
+
+let currentColor = 'black';
+
+function mouseDown(e) {
+    e.target.style.background = currentColor;
+}
 function makePixel (pixelRow, pixelColumn){
     const pixelContainer = document.querySelector('.pixel-container');
     const pixel = document.createElement('div');
@@ -11,6 +17,7 @@ function makePixel (pixelRow, pixelColumn){
     pixel.style.height = `${row}px`;
     pixel.style.border = '1px solid black';
     pixel.className = 'pixel';
+    pixel.addEventListener('mousedown',(e)=>{mouseDown(e);});
     pixelContainer.appendChild(pixel);
 }
 
