@@ -3,36 +3,55 @@ Etch-a-Sketch project
 TOP prescribed project
 */
 
-let currentColor = 'black';
 
-function mouseDown(e) {
-    e.target.style.background = currentColor;
+
+const inputColor = document.querySelector('.color');
+inputColor.addEventListener('input',(e)=>{currentColor = e.target.value;});
+let currentColor = inputColor.value;
+
+let currentSize=12;
+
+const pixelContainer = document.querySelector('.pixel-container');
+
+let click=0;
+function changeColor(e) {
+
+    if(e.type === "click" && click == 0){
+        click = 1;
+    }
+
+    else if(e.type === "click" && click == 1){
+        click = 0;
+    }
+    
+    if(click){
+    e.target.style.background = currentColor;}
 }
+
+
 function makePixel (pixelRow, pixelColumn){
-    const pixelContainer = document.querySelector('.pixel-container');
+    
     const pixel = document.createElement('div');
-    let row = (pixelContainer.clientHeight)/pixelRow;
-    let column = (pixelContainer.clientWidth)/pixelColumn;
-    pixel.style.width = `${column}px`;
-    pixel.style.height = `${row}px`;
-    pixel.style.border = '1px solid black';
+    pixel.style.width = `${pixelColumn}px`;
+    pixel.style.height = `${pixelRow}px`;
     pixel.className = 'pixel';
-    pixel.addEventListener('mousedown',(e)=>{mouseDown(e);});
+    pixel.addEventListener('mouseover',(e)=>{changeColor(e);});
+    pixel.addEventListener('click',(e)=>{changeColor(e);});
     pixelContainer.appendChild(pixel);
 }
 
 function drawGrid(row,column){
+    //let pixelRow = (pixelContainer.clientHeight)/row;
+    //let pixelColumn = (pixelContainer.clientWidth)/column;
+    let pixelRow = 800/row;
+    let pixelColumn = 800/column;
     for(let i=0; i<(row*column);i++){
-        makePixel(row,column);
+        makePixel(pixelRow,pixelColumn);
     }
 
 }
 
 
-
-
-
-drawGrid(16,16);
-
+drawGrid(20,20);
 
 
