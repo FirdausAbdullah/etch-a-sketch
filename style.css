@@ -26,14 +26,20 @@
 }
 
 .pixel-container {
+    --size:4;
     width: 802px;
     height: 800px;
     border: 1px solid black;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(var(--size),1fr);
+    grid-template-rows: repeat(var(--size),1fr);
+    
 }
 
-
+.pixel{
+    background-color: black;
+    border: 1px solid white;
+}
 .tool-box {
     width: 800px;
     background-color: #3367ab;
